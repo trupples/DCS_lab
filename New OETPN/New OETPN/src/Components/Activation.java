@@ -67,6 +67,7 @@ public class Activation implements Serializable {
 		this.Operation = Condition;
 	}
 
+	
 	public void Activate() throws CloneNotSupportedException {
 
 		if (Operation == TransitionOperation.Move)
@@ -95,6 +96,9 @@ public class Activation implements Serializable {
 
 		if (Operation == TransitionOperation.PopElement_R_E)
 			PopElement_R_E();
+
+		if (Operation == TransitionOperation.DynamicDelay)
+			DynamicDelay();
 
 		if (Operation == TransitionOperation.PopElementWithTargetToQueue)
 			PopElementWithTargetToQueue();
@@ -780,5 +784,19 @@ public class Activation implements Serializable {
 		Parent.Parent.PlaceList.set(outputIndex, result);
 	}
 
-	// ------------------------------------------------------------------------------
+	// --------------------------DynamicDelay----------------------------------
+
+	private void DynamicDelay() throws CloneNotSupportedException {
+		PetriObject temp = util.GetFromListByName(InputPlaceName, Parent.TempMarking);
+		if (temp != null) {
+			if (temp instanceof DataInteger)
+				Parent.Delay = ((Integer) (temp.GetValue()));
+		} else {
+			temp = util.GetFromListByName(InputPlaceName, Parent.Parent.ConstantPlaceList);
+			if (temp != null) {
+				if (temp instanceof DataInteger)
+					Parent.Delay = ((Integer) (temp.GetValue()));
+			}
+		}
+	}
 }

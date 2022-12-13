@@ -156,7 +156,7 @@ public class PetriNet implements PetriObject, Runnable, Cloneable, Serializable 
 						trr.InitialDelay = trr.Delay;
 						ExecutionList.add(trr);
 					} else {
-						conditionsStatus += "[" + Transitions.get(i).TransitionName + " conditions are false]";
+						conditionsStatus += "[" + Transitions.get(i).TransitionName + " conditions are false]" + Transitions.get(i).Delay ;
 					}
 				}
 			}

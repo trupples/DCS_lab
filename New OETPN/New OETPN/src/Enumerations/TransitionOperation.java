@@ -27,5 +27,7 @@ public enum TransitionOperation implements Serializable{
 	Add_FloatFlaot,  //the new activations for floatfloat
 	Sub_FloatFloat,
 	Prod_FloatFloat,
-	Div_FloatFloat
+	Div_FloatFloat,
+	
+	DynamicDelay
 }
