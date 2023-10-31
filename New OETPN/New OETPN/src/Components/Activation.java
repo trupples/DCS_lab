@@ -67,7 +67,6 @@ public class Activation implements Serializable {
 		this.Operation = Condition;
 	}
 
-	
 	public void Activate() throws CloneNotSupportedException {
 
 		if (Operation == TransitionOperation.Move)
@@ -314,15 +313,17 @@ public class Activation implements Serializable {
 			if (temp instanceof DataFloat) {
 				if (result == null) {
 					result = (PetriObject) ((DataFloat) temp).clone();
+				} else {
+					result.SetValue((float) result.GetValue() * (float) temp.GetValue());
 				}
-				result.SetValue((float) result.GetValue() * (float) temp.GetValue());
 			}
 
 			if (temp instanceof DataInteger) {
 				if (result == null) {
 					result = (PetriObject) ((DataInteger) temp).clone();
+				} else {
+					result.SetValue((Integer) result.GetValue() * (Integer) temp.GetValue());
 				}
-				result.SetValue((Integer) result.GetValue() * (Integer) temp.GetValue());
 			}
 		}
 		result.SetName(OutputPlaceName);
