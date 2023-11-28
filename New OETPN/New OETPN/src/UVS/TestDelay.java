@@ -26,11 +26,6 @@ public class TestDelay {
 	        DataString p2 = new DataString();
 	        p2.SetName("P2");
 	        pn.PlaceList.add(p2);
-
-//	        DataInteger delay = new DataInteger();
-//	        delay.SetName("delay");
-//	        delay.SetValue(1);
-//	        pn.PlaceList.add(delay);
 	        
 	        DataString in = new DataString();
 	        in.SetName("in");
@@ -38,7 +33,7 @@ public class TestDelay {
 	        
 	        DataInteger Five = new DataInteger();
 	        Five.SetName("Five");
-	        Five.SetValue(500);
+	        Five.SetValue(5);
 	        pn.ConstantPlaceList.add(Five);
 	        
 	        DataInteger One = new DataInteger();
@@ -50,32 +45,25 @@ public class TestDelay {
 	        PetriTransition t1 = new PetriTransition(pn);
 	        t1.TransitionName = "t1";
 	        t1.InputPlaceName.add("P1");
-	        //t1.InputPlaceName.add("delay");
 	        t1.InputPlaceName.add("in");
 
 	        Condition T1Ct1 = new Condition(t1,"P1", TransitionCondition.NotNull);
-	        //Condition T1Ct2 = new Condition(t1,"delay",TransitionCondition.NotNull);
 	        Condition T1Ct3 = new Condition(t1,"in",TransitionCondition.NotNull);
-	        //T1Ct2.SetNextCondition(LogicConnector.AND, T1Ct3);
 	        T1Ct1.SetNextCondition(LogicConnector.AND, T1Ct3);
 
 	        GuardMapping grdT1 = new GuardMapping();
 	        grdT1.condition = T1Ct1;
 	        grdT1.Activations.add(new Activation(t1, "P1", TransitionOperation.Move, "P2"));
-	        //grdT1.Activations.add(new Activation(t1, "Five", TransitionOperation.Move, "delay"));
 	        grdT1.Activations.add(new Activation(t1, "Five", TransitionOperation.DynamicDelay,""));
 	        t1.GuardMappingList.add(grdT1);
 	        
 	        Condition T1Ct4 = new Condition(t1,"P1", TransitionCondition.NotNull);
-	        //Condition T1Ct5 = new Condition(t1,"delay",TransitionCondition.NotNull);
 	        Condition T1Ct6 = new Condition(t1,"in",TransitionCondition.IsNull);
-	        //T1Ct5.SetNextCondition(LogicConnector.AND, T1Ct6);
 	        T1Ct4.SetNextCondition(LogicConnector.AND, T1Ct6);
 
 	        GuardMapping grdT12 = new GuardMapping();
 	        grdT12.condition = T1Ct4;
 	        grdT12.Activations.add(new Activation(t1, "P1", TransitionOperation.Move, "P2"));
-	        //grdT12.Activations.add(new Activation(t1, "One", TransitionOperation.Move, "delay"));
 	        grdT12.Activations.add(new Activation(t1, "One", TransitionOperation.DynamicDelay,""));
 	        t1.GuardMappingList.add(grdT12);
 
