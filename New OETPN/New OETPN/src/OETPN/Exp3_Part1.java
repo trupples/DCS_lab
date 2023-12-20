@@ -157,7 +157,7 @@ public class Exp3_Part1 {
 
 		DataFloat p2 = new DataFloat();
 		p2.SetName("p2");
-		p2.SetValue(2.0f); //testing
+		//p2.SetValue(2.0f); //testing
 		pn.PlaceList.add(p2);
 
 		DataSubPetriNet p3 = new DataSubPetriNet();
