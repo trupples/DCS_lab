@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="OETPN">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/New OETPN/New OETPN" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/New OETPN/New OETPN/src" />
+      <root url="file://$PROJECT_DIR$/New OETPN/New OETPN" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/New OETPN/New OETPN" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/New OETPN/New OETPN" recursive="false" type="SOURCES" />
+  </library>
+</component>
